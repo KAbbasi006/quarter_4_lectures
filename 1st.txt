@@ -1,0 +1,156 @@
+-------------------------------------------------16/Oct/25 --------------------------------------------------
+
+Neural network: predicting the next token based on data.
+
+
+                  -----------------Structure of LLMs---------------------------------
+1. Pre-processiong stage: Always happen once. it is static
+                        (a)-- pre-training (collecting data(in form of raw html)through multiple sources from internet)
+                        How to collect data from specific website? through Web scrapper?
+                        We know very well that every website at the end, render on browser by wrapping in html, css and JS. So to get clean data from a website, we get source code(html, css, JS) of that website and put specific filters on it to get raw text. 
+                                -scrapping the code--->html, css, JS
+                                -Filtering process---->get raw text
+                        (b)-- Tokenization( converting raw text in tokens)
+                                -assigning random numbers or mapping the tokens(words, characters) to a random numeric value
+                                - mathematical expression(sequence main mathematical formulas lagaengy in numeric values ko) e.g: "Hello" ---> "466780"
+                                - convert these numeric values to Computer lang.(bits/bytes or binary lang.)
+                                - saving the data into big Data Set.
+
+2. Post-training : 
+
+
+
+
+
+
+
+LLM is agent's brain.we use it on daily basis e.g: "Chatgpt"
+Actions are functions.
+MCP( model context protocol) is the standard for function calling and we wrap API's on it to call any API bcz LLM understands it.
+ 
+ we will use agents to write another agent and deploy it also.
+
+
+Vibe Coding(loveable): we can make complete website (backend, frontend) from AI.
+we use "Nano banana" in prompt engg. we write in "markdown syle", "xml style" and "json style" (all 3 formats are standard still). easiest is "markdown".input/output both are markdown.
+
+
+ ------------------7 pillars on which "Agent Development" is standing------------------
+
+Pillar 1: (Markdown is the standard programmimg language/instruction)
+        we do not write any programming language directly.
+
+pillar 2: (select universal development env. WSL--> windows subsystem for linux)
+        usually developers externally install linux on their system then "google" and "microsoft" launch feature named "WSL" in which they said you can use Linux inside the windows now, by installing and enabling it (ubuntu will install by-default) and then you can use all linux features and things on windows.
+
+        git installed in it.
+
+        - we can say that cloud is 90-99% linux.
+        - we will use Linux everywhere from the first day and then deploy on cloud.
+        - There is no UI on cloud/server. we need to have strong command on CLI.
+        - when we are on Linux, it's CLI through which we interect with linux, we call this "bash" on Linux. it talks with our OS to make/ delete/move/transfer files etc.
+        - install github CLI on "WSL" or "pure Linux" .
+        - https://github.com/panaversity/spec-kit-plus/tree/main/docs-plus ------> video tutorial on git directory on top by Zeeshan Hanif. all tutorials are available which is discussed above.
+
+
+pillar 3:
+        - AI CLI is new. (Gemini, Qwen, Codex, Sonnet) choose any one
+        
+        old Operating systems were CLI based, it was hard to learn commands thats why GUI(graphical user interface) was introduced, so that everything can be made trough click/right click/ double click etc but backend works on CLI.
+        CLI's are faster than GUI's.
+        LLM will control the CLI and perform all the tasks. So te commands that we used to write manually before will now be written by the AI CLI.
+         
+        previously, we used to get the code written by chatgpt, then copy and paste it into VS code/cursor, and then we used to run that code ourselves to valide it. but now when we connect with AI CLI, as we are working on Cursor (ctrl+I, ctrl + K) when open on agent mode, it takes our command on sonnet 4.5, it makes files/folders , create env, update, deals with clashes , resolve etc on our behalf, and continues working until our given task is completed.
+
+        we can connect AI CLI with our VS Code, cursor as well. so we have power, any CLI to which , we can give commands/ write prompts(in markdown) that command/ prompt will go to LLM(LLM will control CLI means all the access git, github, docker,docker hub, cloud) and LLM will tell you the end result
+
+
+        - There are 2 formulas: 
+                - 1st for Poor: Use Gemini(1000 request/day) / Qwen(2000 req/day)--> (Alibaba ka hai)
+                    We have to install the "Gemini CLI" / "Qwen code" in the Linux machine(WSL) which we have created in our windows system
+                - 2nd for Rich: 
+                    Claude
+                    Sonnet 4.5 ($20/month)
+                    Codex gpt 5($20/month)
+        
+        
+
+
+pillar 4: MCP
+            - We add "Claude" (Claude is a service called "context 7") in our CLI with the help of protocol (MCP). the best thing in MCP is , it can connect with CLI, chatgpt's user interface , or on any LLM based applications. 
+
+            now we have to do development on small iterations i.e spec-driven vibe coding.(write small code then execute it).
+            Now Don't do vibe coding.
+        
+       
+
+pillar 5: TDD : Test driven development. (red green deployment)
+        E.g: Sir Asharib agr Sir Zia ko koi code bhej rhy hain tou usky sath tests likh k bhejain. Sir Zia ne wo code ly k chalanay se pehly sb tests kiye(py test kehty hain). sb pass hogye tou green light ajaegi.agr Sir zia ne us main kuch functionality add ki tou maybe sir Asharib wali functionality chaly na chalay. 
+
+        So tests are written for his purpose that after every change, we can run the old tests along with the new ones.
+
+
+
+ 
+
+pillar 6: 
+        Spec(specification) driven development. don't do vibe coding. use baby steps to write. aur sary specification bhi likhen k kahan kaam krwana hai. 
+        github ------> spec-kit-plus
+
+pillar 7a: Cloud deployment
+        We have made the world's best agent with its micro-services after that we have to enable the FAst API server for the whole world.
+        As we go on cloud for deployment, it costs $30/month normally T3 medium(4GB RAM) for e.g: this computer ---> T3 medium can handle only 100 users so the problem is what about other users? what to do for scalibility?
+        - 4 techniques to make scalable:
+
+        By learning these 4 techniques, if we make a service/micro-services on local computer then it will become planetary scale means millions of users come on our application.
+
+        1. Docker
+                faida: sb se pehly OS liya us main linux install hai, python install krty hain, fast API install krty hain, source code copy paste krty hain, dependencies install krty ho phir run krty ho commnad chala k uv run--, python main.py, etc, ye sb kaam computer pr kia, phir dusra computer ly k us pr b same kaam karu? phir 3rd computer pe b same kaam? problem smjh agai k 1000s of computers chahiye hongy agr hm Open AI jesa system bana rhy hon tou. agr hm cloud pr multiple computers purchase krty hain tou usay "Clusters" kehty hain. 
+                ab cluster main yani hr computer pr sb chezain install krni hain jesy OOP main class banatay hain aur us class k objects banty jatay hain usi trha hm Docker ki image banaty hain (blueprint/class) so jb b 1 new container up hoga tou khud ba khud is image ka clone hojaega means object banjaega.
+
+                Docker ko seekhny ki boht zyada commands nhi hain. maybe 50 commands hongi bs usi se hm sara kaam kr lengy.
+
+                so Docker is basically class from OOP point of view and we make objects/instance from that class
+
+
+        2. Kubernetes:
+                    ye jo containers hain jo physical computers main chalty hain, jis main hard disk, RAM, no of computers, no of ports ets b hain inki management yani kis wa 1st computer on krna hai, kis waqt 2 kholny hain, kis waqt 5th band krna hai, kis waqt ye command CPU/GPU k pas jaegi -------------> ye sb cloud ki "Ocustration" kehlaati hai. yani cloud ki Ocustration ki management . aur is management ke liye hum seekhty hain Kubernetes.
+                     it's not difficult. .html ki file hoti hai aur us main hm ye sari configuration likh dety hain.
+
+
+        3. Dapr: ($ billion ka software open source krdia hai)
+                ab different computers main, different ports main, different containers main micro-services chal rhi hain like login service, signup service, live-streaming service, chatbot service etc yani 1 hamari app main backend pr boht sari services chal rhi hoti hain.
+
+                Dapr is micro-services based architecture.
+                microservices interect with each other, send request to each other, sends request, process etc, every container has sub container from where interaction is possible so state management of micro services is done with Dapr
+
+        4. Ray:
+                jb hamary pas 1000s of requests ati hain in form of batch, then distributed environment pr jb wo request simultaneously process krwani hon tou us k liye hm use krty hain "Ray". 
+                if we want to train model from 50 different machine , ray will help us to do distributed training.
+                if we make a model, and want to serve it worldwide tou jb usay jitny GPUs ki zarurat ho wo utny computers use kry is sb ki management main b Ray use hoga.
+
+                ray.serve-----> decorator()---> is ne kiya kia? hamary model ko distributed environment main serve krdia. yani jity b million f users target karengy tou us hisab se ye decorator jitny b hardwares mojud hain usko use krty huay no of computers on krta rhyga. now ye responsibility Ray ki hai. 
+
+                "ray cube" is a particular pkg of ray for Kubernetes management also. 
+                and ray directly jo hm python code waghera krty hain us main @rayserve,rayremote yani jo b remote fn bana den tou jitni b distributed services hain computer main un sb ko use krty huay kaam krta hai.
+
+
+pillar 7b:
+        CICD: Continuous integration Continuous deployment.
+        CICD implements through github action. and it automatically make updates in cluster 
+
+
+        -------------------------------------------End------------------------------------------------------------------------
+
+
+All work will be done by AI but to interect/talk with Ai in the right manner, we will study Prompt and context engg.
+
+--for ghareeb customer, digital portion k kubernetes cluster pr deploy karunga maybe $50-$60/month
+--sb se achi aur sasti kubernetes service is Ajure ya edger pta nhi kya.
+--Cebo pr b sasti service hai kubernetes ki shayad $20  but wo halka kubernetes hai
+
+
+
+
+
+

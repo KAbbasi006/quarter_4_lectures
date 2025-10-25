@@ -1,0 +1,40 @@
+-install Linux in your OS  using WSL.
+-ab hm IDEs(vs code) se hat kr AI CLIs pr shift hongy.
+-"context" is data.
+- LLM---> brain.
+
+-Benefits of CLIs:
+                - CLIs are interconnected with our system.CLIs context ko jaldi pick krti hain. yani files jaldi create hojati hain.
+                but UIs ko context(data) collect krny main, embedding lagany main, cloud pr bhejnay main, wahan se local client pr jawab anay main boht der lagti hai.
+
+                -CLIs are connected with cloud.
+
+MCP: data ko LLM tk pohanchanay k liye 1 specific protocol banai gai---> MCP
+
+TDD: Test driven development.(for TDD, we can use different libraries of python like pytest, other libraries moca, chai etc)
+
+PRD: product requirement document---> while styding Next.js , we know before making any application, we make a documennt named PRD in which divide all the tasks which you have assigned for your product,  in smaller chunks .
+
+Spec Driven Development: says before making any application, make a documennt named PRD in which divide all the tasks which you have assigned for your product,  in smaller chunks .
+
+CLoud: Kubernetes is a tool that cloud developers use to deploy their application on cloud. Kubernetes make "Ocustration" easy.
+
+Ocustration means fulfilling a single task by running 100s of tools at a time.
+      Cloud: 
+        -Containerization
+        -docker
+        -Kubernetes
+        -Renchers
+        -Jen kinns
+
+
+Prompt and Context Engg. : 
+                    https://github.com/panaversity/learn-low-code-agentic-ai/tree/main/00_prompt_engineering
+
+
+prompt engg: 
+            technique to write clear/purposeful instructions for AI like "Chatgpt" to get best/most accurate response.
+
+hm ne OpenAI SDK Agents python main parhi thi, adhi classes k bech main hi OpenAI ne apny frame work ko TS ke andar b launch krdia tha. so it means we have some tools from which we can generate UI.
+Sir Naeem ne tool---> "v0.app" (vercel ka) use kia website banany k liye jb TS main v0 Open AI agent SDK achuki thi .ye boht khoobsurat UI bana ke deta hai but shart hai k prompt achi ho. bcz prompt se hi website banata hai wo.
+Sir Naeem ne Karachi ke jitnay b baray schools hain unky liye Ai model banany ka socha. hr school ke naam se unko bana ke dy dun, unka syllabus, unka course hr ceez usi k pas mojud ho. due to lack of time, aur opener ko dikhanay k liye sir ne use kia "v0" frontend banaya  aur backend b TS ke sath bnwaya tha Agentic AI ko use krty huay. sir ne 2 chezain di theen.1. Prompt 2. Gemini key aur pura project ban gaya tha. complete chatbot ban gaya tha jo 

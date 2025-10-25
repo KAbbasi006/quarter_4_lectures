@@ -1,0 +1,184 @@
+----------------------------------------------------- 23/Oct/2025 -------------------------------------------------
+
+
+
+-achanak LLM aur AI kesay agai?
+-kya ye sb chatgpt se pehly tha?
+computer kyun invent hua?
+Ans: kaaam ko asaan krny k liye.It is basically computational device to solve mathematical/statistical formulas which we solve manually before.
+pehly bari bari dump machines hoti thi jinko jo kaam kaha jae jesy calculate krna hai tou bs calculate hi krti theen wo.
+
+
+jb computer pr programming start hui tou if/else pr hoti thi.
+--------------------------------------- Rule-Based AI / Semantic AI-------------------------------------
+
+Concept: Early programming was done using if/else rules.
+Example:
+                If the object is yellow and long → it’s a banana.
+                If the object is red and round → it’s an apple.
+Such systems were called Rule-Based AI because they used predefined conditions/patterns for predictions.
+
+Example (Medical System):
+Just like a doctor uses a checklist of symptoms to identify diseases:
+                If most symptoms match → “Chest Infection”
+                If only a few match → “Seasonal Cough”
+Similarly, the computer asked questions (e.g., “Do you have a sore throat?”, “Do you have fever?”) and then predicted the illness using if/else logic.
+
+Problem: These systems were not scalable: means If a new symptom (6th point) needed to be added, the program had to be manually changed. The machine couldn’t learn on its own — it only followed fixed rules.
+
+phir us waqt ye kaha gaya k AI hai tou machine ko intelligent hona chahiye. yani machine khd se chezain learn kar sakay bajae hm check lagaen if/else k, hum machine ko data den r wo khud se learn krly.
+
+So, new algorithms were introduced — like Regression, Decision Trees, and Statistical Models — to help machines learn from data automatically.
+---------------------------------------How Machine Learning Worked?---------------------------------------
+
+Instead of telling the machine rules manually (“Round + Red = Apple”),
+we gave it lots of labeled data:
+Example: 
+1. Show many pictures of apples labeled as “Apple.”
+The machine learns patterns by itself: Round shape, red color → Apple.
+Similarly, 
+2. if we show many dog images labeled “Dog”,
+the machine learns patterns like size, tail, ears, 4 legs, etc.,
+and can later classify new images correctly.
+
+--------------------------------------Limitation of Early ML---------------------------------------------------
+
+Computers had low processing power (only CPUs with few cores).
+Early CPUs could perform only one task at a time (sequentially).
+
+Therefore:
+Training large datasets took a very long time.
+Machines couldn’t process large or complex data efficiently.
+
+phir aye "Neural Network".
+---------------------------------Neural Network--------------------------------------------------------
+
+Inspiration: Based on the human brain, where many neurons communicate and send signals.
+Concept: Scientists mimicked this biological process in hardware/software, creating a model called the Neural Network.
+
+Functions / Achievements
+-Enabled text processing.
+-Made language translation possible, e.g.     English → Urdu,   English → French
+-Allowed automatic transcript generation from videos.
+
+Machine Learning till This Stage:
+                Up to this point, Machine Learning could only read data and convert it from one format to another (e.g., text → translated text, video → transcript).
+
+
+
+
+
+
+
+-----------------------Deep Learning (Advanced Version of Neural Network)-------------------------------------
+
+Neural Network: Single-layer model.
+Deep Learning: Multiple layers added → hence “deep.”
+
+Main Advantage: Can train complex data more effectively.
+E.g: Like teaching someone math who has never studied it before: Start with counting → then +, −, ×, ÷ → then tables → then complex topics like matrices, integration, etc.
+Similarly, in deep learning, each layer learns a simple concept, and later layers learn more complex ones.
+The more layers, the better it understands complex data.
+
+Applications Developed
+1. Classification
+2. Generating audio from video
+3. Generating text from audio
+
+--------------------------------Problems in Earlier Neural Networks-------------------------------
+1. Sequential Processing: Data was read word by word (e.g., 10,000 lines → very slow).
+2. Loss of Context: In a sentence like “The boy wore a red cap is playing football,”
+the model forgets the relation between “boy” and “playing” because of long distance between words.
+3. Hardware Limitation: Couldn’t handle large data due to CPU limitations.
+4. Memory Issue: Could not remember previous words, so context wasn’t properly maintained.
+
+
+        https://github.com/panaversity/learn-low-code-agentic-ai/tree/main/00_prompt_engineering
+
+
+we can understand transformers as algorithms.
+Transformers Deep learning ke Neural networks ki aek form hai.
+Google introduce Transformers in 2017. its architecture is based on: 
+1. Self Attention: 
+                If we give it data to read, it keeps track of the relationship between every word and the other words in the sentence.and due to this it understands the complete sentence that what is written in it.
+2. Parallel Learning: The earlier models, like RNN and CRN, used to read data sequentially, but in this, the model reads all the data at once.E.g: When the students of a class pass in front of the teacher one by one, the teacher can’t remember everyone. But if all the students sit together in front of the teacher, the teacher can easily see and remember everyone at once.
+so when transformers
+
+When Transformers were introduced, it became possible to feed them a large amount of data, and they could learn it very quickly. Around the same time, GPUs also came into use.
+GPUs process data much faster than CPUs bcz: 
+A CPU usually has 4, 8, or 16 cores, meaning it can handle only that many tasks at once.
+A GPU, on the other hand, has thousands of cores (from 3,000 to 10,000), allowing it to perform thousands of tasks simultaneously.
+So, if we train data on a CPU, it takes a long time — but training the same data on a GPU is much faster.
+
+
+All these developments together made it possible for us to train models that can generate data on their own.
+Before this, all the existing models could only classify, predict, or translate — they didn’t create new data. They just listened to the input and converted it into another form.
+But when Transformers were introduced, they enabled us to train models capable of reading data and generating new data from it.
+
+To generate new data, these models needed to learn from a massive amount of text. So, Transformers were given huge text datasets — they analyzed the relationships between words, identified patterns, and learned grammar and structure.
+
+Once fully trained, they became capable of producing new text based on what they had learned.
+That’s why we call this model GPT — Generative Pre-trained Transformer.
+tou ye sb se pehlay LLM thy jo hamary pas aye aur hamain new dunya se roshnaas krwaya jis k andar hm new text generate krny k qabil huay, LLM ne hamary liye code likhna , post likhna, blogs banana suru krdia.
+
+1950's main scientist, mathematician and AI developer "Alan Turing" tha jis ne kaha k . LN tuning test: if you are chatting with a machine  and not able to recognize whether you are interacting with machine or human then assume that machine is more intelligent than hummans.
+it is Alan Turing Test Theory.
+
+----------------------------------------------------------------------------------------------------------
+ so hm is trha travel krty huay Rule based AI se Generative AI pr agaye.
+
+-----------------------------------------How our LLMs work? ----------------------------------------------
+ Q. what is LLM? Here LLM can be any like: GPT, Gemini, Claude etc
+ Ans: It is basically a prediction engine. which predicts a word after any word.(it predicts, not generate)
+        
+prompt given to any LLM :
+Who is the founder of Pakistan?
+here it comes the mechanism of self attention and parallel learning which were used to train the models. now here we are doing inference means we are generating new data from the old ones.
+when this line goes to LLM , it will tokenize it like this: 
+
+Who     is    the    founder      of       Pakistan  ?
+20600   382   290     30778       328        27950   30
+
+Tiktokenizer: 
+        Token IDs are different for small and capital letters, characters, special characters etc like :
+        Pakistan   pakistan
+         27950       4585112
+is trha tokens backend pr kaam kr rhy hoty hain.
+LLMs work is to predict next tokens until the task completes.
+user prompt: means ye prompt gaya LLM k pas.
+LLM is stateless. usay history nhi pata hoti. 
+Prompt = user prompt + system prompt + context + tool schema + tool response + chat history.
+
+System prompt: You are a helpful teacher.
+User Prompt: Hello GPT, How are you?
+Assistant Prompt(response): I am fine.
+User Prompt: I ate biryani last night.
+Assistant prompt: Wow! Biryani is delicious. Which Biryani?
+User Prompt: Chicken
+
+
+
+Context window:  = input token + output Tokenization
+
+Context window 1
+Q1. --------?
+Ans: Response-----
+
+
+Context window 2
+Q1. --------?
+Ans: Response-----
+
+
+when context window is full, no response will generate.
+
+Rag: 
+
+
+                                  website: projector.tensorflow.org
+
+
+Context: is background information jo LLM k pas nahi hai. us task se related jo aap LLM se krwana chahty hain.
+
+
+constraints: do's and don'ts.
