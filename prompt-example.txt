@@ -1,0 +1,95 @@
+
+We’ll use the same four powerful techniques:
+🎭 Role Prompting + 🧩 Contextual Prompting + 🔗 Chain-of-Thought + 📋 Structured Output
+
+---
+
+## 🧠 **Example Combined Prompt (for a Next.js Developer Assistant)**
+
+> **Prompt:**
+> You are an **expert Next.js developer and UI designer** helping Komal build a modern **Furniture Website** using **Next.js 14 and Tailwind CSS**.
+>
+> **Task:** Suggest the **optimized directory structure** and **component organization** for the project.
+>
+> **Context:**
+>
+> * The website has pages for: `Home`, `About`, `Bedroom`, `Dining`, `Living`, `Order`, and `Contact`.
+> * Komal wants a **responsive layout**, reusable **Header** and **Footer**, and dynamic **Cart functionality** where selected items appear on the `Order` page.
+> * She wants clean, readable code and scalability for future updates.
+>
+> **Instructions:**
+>
+> 1. Think **step-by-step** about project setup and folder hierarchy.
+> 2. Then, describe how to make the layout dynamic and easily maintainable.
+> 3. Finally, list **5–6 best practices** to follow while developing this app.
+>
+> **Output Format:**
+>
+> * Use clear headings (`📁 Directory Structure`, `⚙️ Layout Explanation`, `💡 Best Practices`)
+> * Write short, developer-friendly explanations.
+
+---
+
+## 💡 **What Each Part Does (Technique Breakdown)**
+
+| Technique                   | Function                               | Example in This Prompt                                              |
+| --------------------------- | -------------------------------------- | ------------------------------------------------------------------- |
+| 🎭 **Role Prompting**       | Gives the model a clear role           | “You are an expert Next.js developer and UI designer…”              |
+| 🧩 **Contextual Prompting** | Adds project-specific details          | “Website has pages for Home, About… Komal wants responsive layout…” |
+| 🔗 **Chain-of-Thought**     | Guides the model to think step-by-step | “Think step-by-step about project setup…”                           |
+| 📋 **Structured Output**    | Ensures organized and readable answer  | “Use headings: Directory Structure, Layout, Best Practices…”        |
+
+---
+
+## ✅ **Sample AI Output (What You’ll Get)**
+
+**📁 Directory Structure**
+
+```
+src/
+ ├── app/
+ │   ├── layout.tsx
+ │   ├── globals.css
+ │   ├── page.tsx           # Home Page
+ │   ├── about/page.tsx
+ │   ├── bedroom/page.tsx
+ │   ├── dining/page.tsx
+ │   ├── living/page.tsx
+ │   ├── order/page.tsx
+ │   └── contact/page.tsx
+ ├── components/
+ │   ├── Header.tsx
+ │   ├── Footer.tsx
+ │   ├── ProductCard.tsx
+ │   ├── CartContext.tsx
+ │   └── GoToTopButton.tsx
+ ├── data/
+ │   └── productsData.ts
+ ├── utils/
+ │   └── helpers.ts
+ └── styles/
+     └── custom.css
+```
+
+**⚙️ Layout Explanation**
+
+* The **`layout.tsx`** file imports the header and footer so they appear on all pages.
+* The **CartContext** in `components` manages cart data globally.
+* Product cards are reusable and accept props like `title`, `price`, `rating`.
+* Dynamic routing makes category pages independent but consistent in design.
+
+**💡 Best Practices**
+
+1. Keep all UI components reusable and stateless.
+2. Use Tailwind classes consistently for responsiveness.
+3. Organize assets logically under `/public/images`.
+4. Use `Context API` or `Zustand` for global cart state.
+5. Implement lazy loading for large images.
+6. Use semantic HTML and accessible tags for SEO.
+
+---
+
+This single **combined prompt** gives a perfect, professional-level response — ready to use in your real project.
+That’s the power of **Prompt Engineering** in development 💻✨
+
+---

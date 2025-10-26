@@ -143,42 +143,471 @@ Tiktokenizer:
         Token IDs are different for small and capital letters, characters, special characters etc like :
         Pakistan   pakistan
          27950       4585112
+
+So during training, LLM read 1000's of books, scrap data from 1000's of websites, it reads trillions of data include syntax, grammar rules etc.
+
+
+
+
+Q. How LLM works?
+Ans. 1. Input Understanding (Tokenization):
+                                        When you type a question like “Who is the founder of Pakistan?” the model first breaks the sentence into smaller units called tokens (like words or subwords).
+Example:
+["Who", "is", "the", "founder", "of", "Pakistan", "?"]
+This helps the model process text mathematically rather than as plain words.
+
+2. Context and Pattern Recognition:
+                                During training, the model has already read massive amounts of text (books, websites, articles, etc.).
+So it has learned patterns, relationships between words, and facts — for example, that “Pakistan” often appears near “Quaid-e-Azam,” “Muhammad Ali Jinnah,” and “founder”.
+When you ask your question, the model searches its learned patterns to find the most likely continuation of that sentence.
+
+3. Probability-Based Prediction:
+                                The model doesn’t look up an answer like a search engine. Instead, it predicts the next most likely word step by step.
+
+For example:
+After “The founder of Pakistan is”,
+The model checks probabilities and finds the highest likelihood for “Quaid”.
+Then “-e-Azam”, then “Muhammad Ali Jinnah”.
+So the sentence forms naturally: “The founder of Pakistan is Quaid-e-Azam Muhammad Ali Jinnah.”
+
+4. Output Generation: 
+                After generating all the words, the model converts those internal tokens back into readable text and displays it to you.
+
+In short, The LLM doesn’t memorize or search — it predicts the next word based on everything it has learned from patterns and relationships in its training data.
+ 
 is trha tokens backend pr kaam kr rhy hoty hain.
 LLMs work is to predict next tokens until the task completes.
-user prompt: means ye prompt gaya LLM k pas.
-LLM is stateless. usay history nhi pata hoti. 
+LLM is "stateless". usay history nhi pata hoti. 
 Prompt = user prompt + system prompt + context + tool schema + tool response + chat history.
 
+
 System prompt: You are a helpful teacher.
-User Prompt: Hello GPT, How are you?
-Assistant Prompt(response): I am fine.
+User Prompt: Hello GPT, How are you? ( means ye prompt gaya LLM k pas.)
+Assistant Prompt(LLM response): I am fine.
 User Prompt: I ate biryani last night.
 Assistant prompt: Wow! Biryani is delicious. Which Biryani?
 User Prompt: Chicken
 
 
 
-Context window:  = input token + output Tokenization
 
+------------------------------------Chatgpt Example:-------------------------------------------------------
+The Formula:
+        Prompt = user prompt + system prompt + context + tool schema + tool response + chat history
+describes **what an LLM (like GPT)** actually *receives internally* before generating its reply.
+
+1. User Prompt:
+                This is **what you type** — your question or instruction.
+Example:
+> “Who is the founder of Pakistan?”
+It’s your direct message to the model.
+
+
+
+2. System Prompt:
+                This is a **hidden instruction** given to the model by developers (like OpenAI) to guide its behavior and style.
+It defines *how* the model should respond.
+Example system prompt:
+> “You are ChatGPT, a helpful and polite assistant.”
+You don’t see it, but it helps shape the tone and rules of the response.
+
+3. Context:
+        This means the **surrounding information** or **recent conversation** that helps the model stay consistent.
+For example, if earlier you were talking about *Machine Learning*, the model knows the topic continues — it doesn’t start from scratch each time.
+Example:
+If earlier you said, “Explain Deep Learning,”
+and now you ask, “How is it different from Machine Learning?”, the *context* helps the model understand what “it” refers to.
+
+4. Tool Schema:
+                This part applies when the model can use **external tools** (like a browser, calculator, or code interpreter).
+The *tool schema* tells the model **how a tool works** — what inputs it takes and what outputs it gives.
+Example:
+If the model has access to a *search tool*, its schema might say:
+> “Tool name: Web Search — Input: text query — Output: relevant web result.”
+So the model knows *how* to ask the tool for help.
+
+5. Tool Response:
+                When the model uses a tool, the result it gets back is called the **tool response**.
+That becomes part of the model’s “prompt” for generating your final answer.
+Example:
+If you ask, “What is today’s weather in Karachi?”
+The *tool response* might be:
+> “Karachi: 34°C, mostly sunny.”
+> The model then uses this info to write the final answer in natural language.
+
+6. Chat History:
+                This includes your **previous messages and model replies** in the same conversation. It helps the model remember what’s been discussed so far, so it can answer coherently.
+Example:
+If you earlier asked about “Transformers” and now say “Explain it simply,”
+the model looks at chat history to know “it” refers to “Transformers.”
+
+                                             -------Summary----------
+When you ask something, the model doesn’t just see *your latest message* — it actually sees a **complete package** that includes:
+
+> 🔹 Your message
+> 🔹 Its internal rules
+> 🔹 The ongoing topic
+> 🔹 Any tool information or results
+> 🔹 Previous chat history
+and then uses all of that to generate a **context-aware, relevant, and coherent response**.
+
+
+
+------------------------------------------Extra Information from Chatgpt--------------------------------------
+Q. What Model means in General?
+Ans. A **model** in machine learning is simply a **mathematical system trained on data** to perform a specific task — like predicting, classifying, or generating something.
+
+So there are many types of models:
+* Regression model                 → predicts numbers (e.g., house prices)
+* Image classification model       → identifies objects in pictures
+* Speech recognition model         → converts voice to text
+* Language model                   → understands and generates human language
+
+Q. What is an LLM?
+Ans. LLM = Large Language Model — it’s a **type of AI model** trained on **massive amounts of text data** to understand and generate natural language (like English, Urdu, etc.).
+
+                                                So, in short:
+                                        > 🔹 Every LLM is a model,
+                                        > 🔹 but not every model is an LLM.
+Example:
+
+* When we say:
+  > “The model answered my question,”
+  > we mean the **LLM** (like GPT-5, Claude, Gemini, etc.) gave the response.
+* When a data scientist says:
+  > “I trained a model to detect spam emails,”
+  > that model could be something **smaller and specialized**, not necessarily an LLM.
+
+ In Simple Words:
+> “Model” = Any trained AI system.
+> “LLM” = A specific kind of model focused on **language understanding and generation**.
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+System prompt: You are a helpful teacher.
+User Prompt: Hello GPT, How are you? ( means ye prompt gaya LLM k pas.)
+Assistant Prompt(LLM response): I am fine.
+User Prompt: I ate biryani last night.
+Assistant prompt: Wow! Biryani is delicious. Which Biryani?
+User Prompt: Chicken
+
+Q. Who will send chat history to LLM?
+Ans: Application/Developer.
+-Prompt is basically a token. when we buy OpenAI key, it means we are purchasing tokens.
+-context window: Input and output tokens kitny generate huay.
+                        Context window:  = input token + output Tokenization
+-Every LLM has a size of its context window. suppose GPT 3.5 has a context window 8000.
+ 
+                Suppoose context window = 8000 tokens
 Context window 1
-Q1. --------?
-Ans: Response-----
-
+Q1. Who is the founder of Pakistan?             (tokens consumed = 1000)
+Ans:Founder of Pakistan is Quaid e Azam.        (tokens consume = 2000)
 
 Context window 2
-Q1. --------?
-Ans: Response-----
+Q2. Which is the Capital of Pakisan?             (tokens consume = 2000)
+Ans: Theb capital of Pakisan is Islamabad.       (tokens consume = 2000)
+
+Context window 3:
+Q3. Which is the national flower of Pakistan?  (tokens consume = 1000) total = 8000 (Tokens ended) 
+-No response will generate.
+-if we have few token left then half or a little bit response will generate. it will truncate.
+-when context window is full, no response will generate.
+
+Initial models had less context window.
+Now, latest models have large context window.
+
+jo hm history bhejty hain sath sath context k tou us main boht tokens consume hoty hain.
+Q. how to minimize it in order to consume less token and maintain memory?
+Ans. There are some techniques which will help us while making Application. In future when a client ask you to make LLM Application then there we will have to consume less token.
+Sir ne bataya k jahan wo kaam krty hain wo aek "News organization" hai. unka jo CMS hai wahan editors story generate krty hain. wahan ye requirement ayi k hm AI ko use krty hain, aur jo writer/author hoga wo sirf "title" dyga aur us title se story generate hogi. ab jo story generate hogi uske characteristics kya hongy? ab authors tou multiple hoty hain jo stories likh rhy hoty hain aur hr author ka writing style different hota hai, vocabulary, grammar, syntax sb different hota hai. requirement ye ai k jo author hoga usi k style main story generate honi chahiye.  tou hamari kya approach hogi k ye cheez hojae.
+Ans: hm examples dengy,jo b writer hoga hm uski purani 10-15 stories as an example dengy system prompt main, aur phir kahengy k is style main stories generate kr k do mjhy. but iska nuqsan ye hoga k usko agr hm 20 stories dengy tou wo boht zyada tokens consume kryga. aur har baar jb hum usay kahengy k "write a story about something + large data as an example" tou wo boht tokens consume kryga. 
+                        Sir ne kya kia? 🤔
+Sir ne GPT ka jo model 4.1 tha, usko uthaya aur usko Auto-tune krdia. us main ye  hua k us model ko bs aek baar sikhana para k bhaee ye author hai, uska ye writing style hai etc aur jb wo seekh gaya tou is se kya hua k ab model ko sirf prompt dena par rha hai, context nahi dena par rha tou is se token bach gaye. ye sir ki approach thi. 
+ab hamara jo b issue hoga us hisab se approach hogi hamari.
+
+1st approach to save token-----------> jo b chat history ja rhi ho us main se akhir k sirf 10 msgs bhejunga bhalay 10000 msgs hon . is se tokens bach jaengy.
+
+2nd approach -------------------------> jitny b msgs oper hain wo sb utha k LLM ko dy dun k mjhy is chat ki summary bana ke do tou us se b less tokens lagengy. ho skta hai k 7000 ki jaga only 500 tokens consume hon.
+-is se ye hoga k hamari memory b maintain hojaegi aur kaam b hojaega.
+
+3rd approach --------------------------> last k 10 msgs pass krdo aur baqi k 90 msgs ki summary banwa lo.
+it depends on requirement.hm rag k through b kr skty hain.
+-------------------------------------------------------------------------------------------------------------------
+What is meant by RAG? 
+Ans: ?????
 
 
-when context window is full, no response will generate.
 
-Rag: 
+Session is a property of OpenAI SDK ki. we are talking about LLM. when we talk about LLM, it may be LangChain, Gemini SDK, so we are discussing in this context. 
+
+The relation b/w LLM and us is the "Prompt".
+the best is the prompt, the best results we can get.
 
 
-                                  website: projector.tensorflow.org
 
+
+Google Search:---------->      website: projector.tensorflow.org
+Search : "King" 
+is finding se reated jo b result tha,isky aur kya meanings hoskty hain yani is word ka relation jin jin words se hoskta hai wo sara data(dots ki surat main), aur ye kahan kahan se wo words ly k arha hai ye sb point out hua wa hai. is trha ye algorithm bany hain jo hamari baat ko copy nhi kr rhy balky usky context ko b smjh rhy hain k hamara baat krny ka context kya hai, pattern kya hai , andaaz kya hai. ALl this depends on "Prompt".
+ab agr hm is prompt se nikal k LLM tk agaye tou agr hm is prompt k andar hm Engineering(engg.) kr len tou it means "Prompt Engg."
+
+
+         -----------------Chatgpt explanation about Prompt Engineering------------------------
+
+Prompt Engineering means:
+                        Designing and writing effective inputs (prompts) to get the best, most accurate, or most creative response from an AI model.
+In short, it’s the art and science of talking to AI in a way that makes it give you exactly what you want.
+
+                                                💡 Example
+❌ Bad Prompt:
+                Tell me about Pakistan.
+                👉 The answer will be very general and broad.
+
+✅ Good Prompt:
+                Write a short, 100-word paragraph describing Pakistan’s geography, culture, and main tourist attractions. Use simple English and bullet points.
+                👉 The answer now becomes detailed, structured, and exactly in your desired format.
+
+
+            ---------------------📘Example of Full Prompt Engineering-------------------------
+Prompt:
+        You are an expert AI teacher. Explain the concept of transformers in simple words, using examples related to students and teachers. Keep your explanation under 200 words and end with a short summary.
+
+→ The model now clearly knows:
+its role (teacher),
+topic (transformers),
+style (simple words),
+length (under 200 words),
+and structure (explanation + summary).
+
+Prompt Engineering = The skill of asking the right question in the right way.
+That’s prompt engineering — giving the model clear, detailed instructions.
+
+                ---------------------------------------------------------------  
+
+Context: 
+        means the background information or situation details you give to the model so it fully understands what you are asking for and how to respond correctly.
+In simple words:
+                Context helps the model understand your purpose, topic, and boundaries before giving an answer.
+                            -------- **Without Context**----------
+
+If you just say:
+                > “Write an introduction.”
+The model doesn’t know:
+* Introduction for what?
+* Who is the audience?
+* What tone to use?
+So it might give a random or generic result.
+
+                             -------------- **With Context**------------
+
+If you say:
+        > “Write an introduction for a furniture website that sells modern bedroom, dining, and living room furniture in Pakistan. The tone should be elegant and professional.”
+
+Now the model knows the **topic (furniture website)**, **target audience (customers in Pakistan)**, and **tone (elegant, professional)**.
+➡️ It can generate **much better and relevant** output.
+
+                        --------**In Technical Terms (for AI & LLMs)**---------
+
+In AI, **context** includes:
+1. Your **prompt** (the text you type)
+2. The **previous chat history**
+3. Any **data** or **document** the model has access to
+4. **System instructions** (like role or style guidelines)
+5. **Tool outputs or references**
+All of this together helps the model “understand the situation” before responding.
+
+                ------------**Simple Example (for You)**---------------------------
+
+When you say:
+        > “Create a product card component.”
+The model doesn’t know what kind of website.
+But if you add context:
+        > “Create a product card component for a furniture website using Next.js and Tailwind, with image, name, price, and Add to Cart button.”
+Now it knows exactly what you want — this is the context.
 
 Context: is background information jo LLM k pas nahi hai. us task se related jo aap LLM se krwana chahty hain.
-
-
 constraints: do's and don'ts.
+
+
+
+
+------------------------------------------ChatGPT Explanation---------------------------------------------------
+
+What is meant by Rag? 
+Ans: RAG = Retrieval-Augmented Generation
+
+It’s a technique used to improve the accuracy and reliability of LLMs (like GPT, Gemini, Claude, etc.) by giving them access to external information sources (like databases, documents, or the web) before generating an answer.
+               
+                -------------------Why RAG is Needed----------------------
+LLMs (like GPT) are trained only on the data that existed up to a certain date (for example, GPT-5 was trained up to mid-2024).
+So by default, they:
+* Don’t know new or updated information
+* Can hallucinate (make up facts) when unsure
+To fix this, RAG allows the model to "retrieve real, external data first", and then generate a response using that information.
+
+                ---------------------How RAG Works (Step-by-Step)-----------
+
+1. User asks a question:
+                        → e.g., “What are the latest tourism policies in Pakistan (2025)?”
+
+2. Retrieval phase:
+                → The system searches external sources (like databases, websites, or PDFs) for relevant, up-to-date text related to the question.
+
+3. Augmentation phase:
+                → The retrieved information is combined (or “augmented”) with the user’s prompt and passed to the LLM.
+
+4. Generation phase:
+                → The LLM reads that context and generates a response based on **the retrieved facts**, not just its internal memory.
+
+                                             Example:
+                        -------------------Without RAG:---------------
+> ❌ “Pakistan recently introduced tourism reforms under the 2023 plan.” (Outdated or made-up info)
+
+                        -------------------Without RAG:---------------
+> ✅ “In 2025, Pakistan’s Ministry of Tourism announced new incentives for eco-tourism, including tax relief for hotel investors.”
+> (Information retrieved from an updated source and then used by the model.)
+
+                                           In Simple Words,
+                                > RAG = **LLM + Real-Time Search**
+                                > It helps the model think like GPT but know like Google.
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+⚙️ 1. Zero-Shot Prompting
+
+Meaning:
+You give the model a task without any example — it must figure out what to do just from the instructions.
+
+Example:
+
+🔹 Prompt: “Translate this sentence into Urdu: The weather is beautiful today.”
+
+How it works:
+The model directly understands the task (“translate into Urdu”) from the command — no example needed.
+
+✅ Used for: straightforward tasks like translation, summarization, explanation, etc.
+
+⚙️ 2. Few-Shot Prompting
+
+Meaning:
+You give the model a few examples first so it learns the pattern or format before doing your actual task.
+
+Example:
+
+🔹 Prompt:
+Translate the following sentences into Urdu:
+
+The sky is blue. → آسمان نیلا ہے۔
+
+I am reading a book. → میں کتاب پڑھ رہا ہوں۔
+
+The students are in class. →
+
+(Now the model automatically continues with)
+→ طلباء کلاس میں ہیں۔
+
+✅ Used for: teaching the model a custom format or style.
+
+⚙️ 3. Chain-of-Thought Prompting (CoT)
+
+Meaning:
+You ask the model to think step-by-step before answering.
+This helps it reason logically, especially in math, logic, or problem-solving questions.
+
+Example:
+
+🔹 Prompt:
+Q: If Ali has 5 apples and gives 2 to Sara, how many apples does he have left?
+Explain your reasoning step by step.
+
+Model thinks like:
+“Ali starts with 5 apples → gives 2 to Sara → 5 − 2 = 3 → so he has 3 left.”
+✅ Answer: 3 apples.
+
+✅ Used for: reasoning, calculations, coding, etc.
+
+⚙️ 4. Role Prompting
+
+Meaning:
+You assign a specific role or identity to the model before giving the task.
+This changes its tone, expertise, and style.
+
+Example:
+
+🔹 Prompt:
+You are an expert graphic designer. Explain how to create a minimalist logo for a fashion brand.
+
+✅ Used for: getting professional or domain-specific answers.
+
+⚙️ 5. Contextual Prompting
+
+Meaning:
+You give background information (context) to help the model answer better.
+
+Example:
+
+🔹 Prompt:
+Context: Pakistan was created in 1947 as a result of the Indian subcontinent’s partition.
+Question: Who was the founder of Pakistan?
+
+✅ The model uses context → Answer: “The founder of Pakistan was Quaid-e-Azam Muhammad Ali Jinnah.”
+
+✅ Used for: improving accuracy and relevance of answers.
+
+⚙️ 6. Instructional or Structured Prompting
+
+Meaning:
+You tell the model exactly how to format or organize its answer.
+
+Example:
+
+🔹 Prompt:
+Explain Artificial Intelligence in 3 bullet points, then give one example in simple words.
+
+✅ Used for: getting formatted or well-structured answers.
+
+⚙️ 7. Multimodal Prompting (for advanced models)
+
+Meaning:
+You give input that includes text + images + audio or other data together.
+
+Example:
+
+🔹 Prompt:
+“Look at this picture and describe what’s happening.”
+(You attach an image.)
+
+✅ Used for: image captioning, visual question answering, and AI art generation.
+
+⚙️ 8. Retrieval-Augmented Generation (RAG) Prompting
+
+Meaning:
+You connect the model to an external database or documents.
+The model first retrieves relevant information → then generates an answer.
+
+Example:
+
+🔹 Prompt:
+“Based on the company policy documents, summarize employee leave rules.”
+
+✅ The system retrieves the relevant section from company files and then gives a summary.
+
+✅ Used for: chatbots, research assistants, and company-specific AIs.
+
+🧩 Summary Table
+Type	What It Does	When to Use
+Zero-shot	No examples, direct command	Simple tasks
+Few-shot	Few examples to learn format	Custom outputs
+Chain-of-thought	Step-by-step reasoning	Logic/math/coding
+Role-based	Assigns a role	Expert tone
+Contextual	Adds background info	Accuracy
+Structured	Controls output format	Reports, lists
+Multimodal	Combines image/audio/text	Visual tasks
+RAG	Retrieves data before answering	Knowledge-based chatbots
